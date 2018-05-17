@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
+var users = [];
 
 
-router.get('/list/str',function(req,res) {
+router.get('/list/admin',function(req,res) {
 
         res.render('test/admin',{title:"hello world"})
 },function (req,res) {
@@ -14,11 +15,17 @@ router.get('/list/str',function(req,res) {
 router.post('/list/new',function(req,res) {
     console.log(req.body);
      var content = req.body;
-     console.log(content.content);
-     db.insert(content);
+     users.push(content);
 
+     console.log(content.content);
+     res.redirect('test/hello')
 });
 
+router.get('/list/test/hello',function (req,res,next) {
+    console.log("hahahah");
+    console.log(users);
+    res.render('test/list',{user:users})
+});
 
 // router.get('/admin',function(req,res) {
 //
