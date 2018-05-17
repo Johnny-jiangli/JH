@@ -1,9 +1,50 @@
 extends ../layout
 block content
-    h1= '这是express-par响应体'
-    each obj in user
-        p= obj.content
-        p= obj.age
-        p= obj.sex
-        p= obj.str
-        br
+    .container
+        .row
+            .panel-default
+                .panel-heading 后台管理页面
+                .panel-body
+                    .well
+                        table.table
+                            thead
+                                tr
+                                    th ID
+                                    th 姓名
+                                    th 性别
+                                    th 年龄
+                                    th 班级
+                                    th 爱好
+                                    th 电话
+                                    th 邮箱
+                                    th 编辑
+                                    th 删除
+                            tbody
+                                - var ID = 0;
+                                each obj in user
+                                    tr
+                                        - ID++
+                                        td= ID
+                                        td #{obj.name}
+                                        td #{obj.sex}
+                                        td #{obj.age}
+                                        td #{obj.cla}
+                                        td #{obj.hobby}
+                                        td #{obj.phone}
+                                        td #{obj.email}
+                                        td
+                                            a(href="#")
+                                                i.glyphicon.glyphicon-pencil
+                                        td
+                                            a(href="#myModal" role="button" dataa-toggle="modal")
+                                                i.glyphicon.glyphicon-remove
+
+
+
+
+
+
+
+
+
+
