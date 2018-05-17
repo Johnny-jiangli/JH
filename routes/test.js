@@ -3,7 +3,7 @@ var router = express.Router();
 
 
 
-router.get('/list',function(req,res) {
+router.get('/list/str',function(req,res) {
 
         res.render('test/admin',{title:"hello world"})
 },function (req,res) {
@@ -18,6 +18,7 @@ router.post('/list/new',function(req,res) {
      db.insert(content);
 
 });
+
 
 // router.get('/admin',function(req,res) {
 //

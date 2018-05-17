@@ -8,15 +8,17 @@ var logger = require('morgan');
 // var mongoose = require('mongoose');
 // mongoose.connect('mongodb://localhost/haha');
 
-const mongoclient = require('mongodb').MongoClient;
-const url = "mongodb://localhost:27017/johnny";
-const dbname = "johnny";
+// const mongoclient = require('mongodb').MongoClient;
+// const url = "mongodb://localhost:27017/johnny";
+// const dbname = "johnny";
 
 
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var testRouter = require('./routes/test');
+var testRouterMid = require('./routes/testRoute');
+
 
 var app = express();
 
@@ -28,9 +30,9 @@ app.locals.moment = require('moment');
 // app.locals.email="jiangli450324@163.com";
 // view engine setup
 
-mongoclient.connect(url,function (err,client) {
-    var db = client.db(dbname);
-    console.log(db)
+// mongoclient.connect(url,function (err,client) {
+//     var db = client.db(dbname);
+//     console.log(db)
     app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
@@ -43,7 +45,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/test',testRouter);
-
+app.use('/t',testRouterMid);
 // catch 404 and forward to error handler
 
 app.use(function(req, res, next) {
@@ -60,5 +62,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-});
+// });
 module.exports = app;
