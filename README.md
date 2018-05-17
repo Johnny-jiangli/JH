@@ -3,5 +3,5 @@
  前端jade+bootstrap+jquery
  后端mongoose+node.js
  框架express
-后台录入页/test/list/admin
-数据管理页面/test/list/test/hello
+   <br>后台录入页/test/list/admin
+    <br>数据管理页面/test/list/test/hello
